@@ -24,10 +24,10 @@ const requireAuthentication = process.env.USER_AUTHENTICATION_REQUIRED;
 exports.twilioSendOTP = functions.handler.https.onCall((data, context) => {
 
     // Checking that the user is authenticated.
-    if (!context.auth && requireAuthentication) {
-        // Throwing an HttpsError so that the client gets the error details.
-        throw new functions.https.HttpsError("unauthenticated", "The function must be called while authenticated.");
-    }
+    // if (!context.auth && requireAuthentication) {
+    //     // Throwing an HttpsError so that the client gets the error details.
+    //     throw new functions.https.HttpsError("unauthenticated", "The function must be called while authenticated.");
+    // }
 
     let { number, channel } = data;
     if (channel == null) {
